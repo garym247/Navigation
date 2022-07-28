@@ -6,8 +6,27 @@
         xmlns:local="clr-namespace:Navigation.Views"
         mc:Ignorable="d"
         d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel>
-        <TextBox>Address List View</TextBox>
-        <Button Content="Goto Address" Command="{Binding NavigateAddressViewCommand}" />
-    </StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>    
+            <RowDefinition></RowDefinition>    
+            <RowDefinition></RowDefinition>    
+            <RowDefinition></RowDefinition>    
+        </Grid.RowDefinitions>    
+        <TextBlock 
+            Grid.Row="0"
+            Grid.Column="0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="20"
+            FontWeight="Bold"
+            Text="Address List View" />
+        <ListBox Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" BorderThickness="1">
+            <ListBoxItem>Address item one</ListBoxItem>
+            <ListBoxItem>Address item two</ListBoxItem>
+            <ListBoxItem>Address item three</ListBoxItem>
+            <ListBoxItem>Address item four</ListBoxItem>
+            <ListBoxItem>Address item five</ListBoxItem>
+        </ListBox>
+        <Button Grid.Row="2" Grid.Column="0" Content="Goto Address View" Height="30" HorizontalAlignment="Center" Command="{Binding NavigateAddressViewCommand}"/>
+    </Grid>
 </UserControl>
