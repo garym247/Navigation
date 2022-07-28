@@ -1,17 +1,19 @@
-using Navigation.Stores;
-using Navigation.ViewModels;
 using System;
 using System.Windows.Input;
+using Navigation.Stores;
+using Navigation.ViewModels;
 
 namespace Navigation.Commands
 {
-    public class NavigateAddressViewCommand : ICommand
+    public class NavigateCommand : ICommand
     {
         private NavigationStore _navigationStore;
-
-        public NavigateAddressViewCommand(NavigationStore navigationStore)
+        private Func<ViewModelBase> _createViewModelFunc;
+        
+        public NavigateCommand(NavigationStore navigationStore, Func<ViewModelBase> createViewModelFunc)
         {
             _navigationStore = navigationStore;
+            _createViewModelFunc = createViewModelFunc;
         }
 
         public event EventHandler CanExecuteChanged;
@@ -23,7 +25,7 @@ namespace Navigation.Commands
 
         public void Execute(object parameter)
         {
-            _navigationStore.CurrentViewModel = new AddressViewModel(_navigationStore);
+            _navigationStore.CurrentViewModel = _createViewModelFunc();
         }
     }
 }

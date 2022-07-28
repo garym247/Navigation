@@ -13,7 +13,7 @@ namespace Navigation.ViewModels
         public AddressListViewModel(NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;
-            NavigateAddressViewCommand = new NavigateAddressViewCommand(_navigationStore);
+            NavigateAddressViewCommand = new NavigateCommand(_navigationStore, () => new AddressViewModel(_navigationStore) );
         }
     }
 }

@@ -1,7 +1,6 @@
+using System.Windows.Input;
 using Navigation.Commands;
 using Navigation.Stores;
-using System.Windows.Input;
-
 namespace Navigation.ViewModels
 {
     public class AddressViewModel : ViewModelBase
@@ -12,7 +11,7 @@ namespace Navigation.ViewModels
         public AddressViewModel(NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;
-            NavigateAddressListViewCommand = new NavigateAddressListViewCommand(_navigationStore);
+            NavigateAddressListViewCommand = new NavigateCommand(_navigationStore, () => new AddressListViewModel(_navigationStore) );
         }
     }
 }
