@@ -20,13 +20,13 @@ namespace Navigation
         protected override void OnStartup(StartupEventArgs e)
         {
             _navigationStore = new NavigationStore();
-            _navigationStore.CurrentViewModel = new DeviceListViewModel();
+            _navigationStore.CurrentViewModel = new DeviceListViewModel(_navigationStore);
 
             //
             // To make the DeviceView the initial view change the navigation store
             // CurrentViewModel to DeviceViewModel, i.e. 
             //
-            // _navigationStore.CurrentViewModel = new DeviceViewModel();
+            // _navigationStore.CurrentViewModel = new DeviceViewModel(_navigationStore);
             //
 
             MainWindow = new MainWindow()

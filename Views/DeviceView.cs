@@ -7,7 +7,6 @@ namespace Navigation.Views
         public DeviceView()
         {
             InitializeComponent();
-        }       
-        
+        }
     }
 }
