@@ -1,19 +1,17 @@
+using Navigation.Stores;
+
 namespace Navigation.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        public MainViewModel()
-        {
-            CurrentViewModel = new DeviceListViewModel();
+        private NavigationStore _navigationStore;
 
-            //
-            // To make the DeviceView the initial view change the CurrentViewMoel
-            // to DeviceViewModel, i.e. 
-            //
-            // CurrentViewModel = new DeviceViewModel();
-            //
+        public MainViewModel(NavigationStore navigationStore)
+        {
+
+            _navigationStore = navigationStore;
         }
 
-        public ViewModelBase CurrentViewModel { get; set; }
+        public ViewModelBase CurrentViewModel => _navigationStore.CurrentViewModel;
     }
 }
