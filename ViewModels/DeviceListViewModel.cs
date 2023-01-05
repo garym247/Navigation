@@ -10,7 +10,7 @@ namespace Navigation.ViewModels
 
         public DeviceListViewModel(NavigationStore navigationStore)
         {
-            NavigateToDeviceViewCommand = new NavigateToDeviceViewCommand(navigationStore);
+            NavigateToDeviceViewCommand = new NavigateCommand<DeviceViewModel>(navigationStore, () => new DeviceViewModel(navigationStore));
         }
     }
 }
