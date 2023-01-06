@@ -4,11 +4,11 @@ using Navigation.Stores;
 
 namespace Navigation.ViewModels
 {
-    public class DeviceViewModel : ViewModelBase
+    public class LoginViewModel : ViewModelBase
     {
         public ICommand NavigateToDeviceListViewCommand { get; }
 
-        public DeviceViewModel(NavigationStore navigationStore)
+        public LoginViewModel(NavigationStore navigationStore)
         {
             NavigateToDeviceListViewCommand = new NavigateCommand<DeviceListViewModel>(
                 navigationStore, () => new DeviceListViewModel(navigationStore));
