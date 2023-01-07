@@ -1,5 +1,6 @@
 using System.Windows.Input;
 using Navigation.Commands;
+using Navigation.Services;
 using Navigation.Stores;
 
 namespace Navigation.ViewModels
@@ -9,9 +10,15 @@ namespace Navigation.ViewModels
         public ICommand NavigateToDeviceListViewCommand { get; }
 
         public DeviceViewModel(NavigationStore navigationStore)
-        {
+        {            
+            //
+            // Use a Create Command Delegate instead??
+            //
             NavigateToDeviceListViewCommand = new NavigateCommand<DeviceListViewModel>(
-                navigationStore, () => new DeviceListViewModel(navigationStore));
+                new NavigationService<DeviceListViewModel>(
+                    navigationStore, 
+                    () => new DeviceListViewModel(navigationStore)));
+
         }
     }
 }
