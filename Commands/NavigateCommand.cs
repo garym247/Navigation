@@ -5,12 +5,12 @@ using Navigation.ViewModels;
 
 namespace Navigation.Commands
 {
-    public class NavigateCommand<TCreateViewModel> : CommandBase
-        where TCreateViewModel : ViewModelBase
+    public class NavigateCommand<TViewModel> : CommandBase
+        where TViewModel : ViewModelBase
     {
-        private readonly NavigationService<TCreateViewModel> _navigationService;
+        private readonly NavigationService<TViewModel> _navigationService;
  
-        public NavigateCommand(NavigationService<TCreateViewModel> navigationService)
+        public NavigateCommand(NavigationService<TViewModel> navigationService)
         {
             _navigationService = navigationService;
         }

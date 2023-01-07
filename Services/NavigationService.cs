@@ -4,13 +4,13 @@ using Navigation.ViewModels;
 
 namespace Navigation.Services
 {
-    public class NavigationService<TCreateViewModel>
-        where TCreateViewModel : ViewModelBase
+    public class NavigationService<TViewModel>
+        where TViewModel : ViewModelBase
     {
         private readonly NavigationStore _navigationStore;
-        private readonly Func<TCreateViewModel> _createViewModel;
+        private readonly Func<TViewModel> _createViewModel;
 
-        public NavigationService(NavigationStore navigationStore, Func<TCreateViewModel> createViewModel)
+        public NavigationService(NavigationStore navigationStore, Func<TViewModel> createViewModel)
         {
             _navigationStore = navigationStore;
             _createViewModel = createViewModel;
